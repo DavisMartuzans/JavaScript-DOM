@@ -1,20 +1,18 @@
-const list = document.querySelector('#book-list ul');
-
-// delete books
-list.addEventListener('click', (e) => {
-  if(e.target.className == 'delete'){
-    const li = e.target.parentElement;
-    console.log('child element to remove:', li);
-    console.log('parent element to remove child from:', li.parentElement);
-    li.parentNode.removeChild(li);
-  }
+li.parentNode.removeChild(li);
+}
 });
 
-// prevent default behaviour
+const forms = document.forms;
+console.log(forms);
+console.log(forms['add-book']);
 
-const link = document.querySelector('#page-banner a');
+Array.from(forms).forEach(function(form){
+console.log(form);
+});
 
-link.addEventListener('click', function(e){
-  e.preventDefault();
-  console.log('Navigation to', e.target.textContent, 'was prevented');
+const addForm = forms['add-book'];
+addForm.addEventListener('submit', function(e){
+e.preventDefault();
+const value = addForm.querySelector('input[type="text"]').value;
+console.log(value);
 });
