@@ -1,13 +1,19 @@
-li.appendChild(deleteBtn);
-  list.appendChild(li);
+}
+});
 });
 
-// hide books
-const hideBox = document.querySelector('#hide');
-hideBox.addEventListener('change', function(e){
-  if(hideBox.checked){
-    list.style.display = "none";
-  } else {
-    list.style.display = "initial";
-  }
+// tabbed content
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+tabs.addEventListener('click', (e) => {
+if(e.target.tagName == 'LI'){
+  const targetPanel = document.querySelector(e.target.dataset.target);
+  Array.from(panels).forEach((panel) => {
+    if(panel == targetPanel){
+      panel.classList.add('active');
+    }else{
+      panel.classList.remove('active');
+    }
+  });
+}
 });
